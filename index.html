@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1111111111111</title>
+    <title>Button Feedback Prototype</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <div class="clickButtons">
-        <button id="feedback1">Click1</button>
-        <button id="feedback2">Click2</button>
-        <button id="feedback3">Click3</button>
-        <button id="feedback4">Click4</button>
-        <button id="feedback5">Click5</button>
-        <button id="feedback6">Click6</button>
+
+    <div class="container">
+
+    <button id="mainButton">CENTER</button>
+
+    <div class="control">
+        <label><input type="checkbox" data-effect="shake"> Shake</label><br>
+        <button class="small-btn" data-effect="shake">Shake</button>
     </div>
+
+    <div class="control">
+        <label><input type="checkbox" data-effect="scale"> Scale</label><br>
+        <button class="small-btn" data-effect="scale">Scale</button>
+    </div>
+
+    <div class="control">
+        <label><input type="checkbox" data-effect="rotate"> Rotate</label><br>
+        <button class="small-btn" data-effect="rotate">Rotate</button>
+    </div>
+
+    <div class="control">
+        <label><input type="checkbox" data-effect="glow"> Glow</label><br>
+        <button class="small-btn" data-effect="glow">Glow</button>
+    </div>
+
+    <div class="control">
+        <label><input type="checkbox" data-effect="color"> Colour</label><br>
+        <button class="small-btn" data-effect="color">Colour</button>
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
 </body>
 </html>
