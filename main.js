@@ -1,7 +1,11 @@
+// Select the main button in the centre
 const mainButton = document.getElementById("mainButton");
+// Select all small preview buttons
 const smallButtons = document.querySelectorAll(".small-btn");
+// Select all checkboxes used for effect selection
 const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
+// Reset all visual effects back to default state
 function resetVars(el) {
     el.style.setProperty("--tx", "0px");
     el.style.setProperty("--scale", "1");
@@ -10,6 +14,7 @@ function resetVars(el) {
     el.classList.remove("glow");
 }
 
+// Apply a selected feedback effect
 function applyEffect(el, effect) {
 
     if (effect === "shake") {
@@ -53,37 +58,48 @@ function applyEffect(el, effect) {
     }
 }
 
+// Small preview buttons
+// Each button demonstrates its own effect
 smallButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         const effect = btn.dataset.effect;
 
+         // Reset button before animation
         resetVars(btn);
+        // Apply selected effect
         applyEffect(btn, effect);
 
+         // Return to default state after animation
         setTimeout(() => {
             resetVars(btn);
         }, 400);
     });
 });
 
+// Combines all checked effects together
 mainButton.addEventListener("click", () => {
 
     const active = [];
 
+    // Find all selected checkboxes
     checkboxes.forEach(box => {
         if (box.checked) {
             active.push(box.dataset.effect);
         }
     });
 
+    // Do nothing if no effect is selected
     if (active.length === 0) return;
 
+    // Reset before applying new effects
     resetVars(mainButton);
 
+    // Apply all selected effects
     active.forEach(effect => {
         applyEffect(mainButton, effect);
     });
 
+     // Reset after animation completes
     setTimeout(() => {
         resetVars(mainButton);
     }, 400);
