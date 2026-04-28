@@ -10,7 +10,7 @@ function resetVars(el) {
     el.style.setProperty("--tx", "0px");
     el.style.setProperty("--scale", "1");
     el.style.setProperty("--rotate", "0deg");
-    el.style.setProperty("--bg", "#444");
+    el.style.setProperty("--bg", "#6d6d6d");
     el.classList.remove("glow");
 }
 
