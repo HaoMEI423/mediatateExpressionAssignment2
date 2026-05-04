@@ -104,3 +104,9 @@ mainButton.addEventListener("click", () => {
         resetVars(mainButton);
     }, 400);
 });
+
+const guide = document.getElementById("testGuide")
+
+guide.addEventListener("click", () => {
+    guide.classList.add("hidden");
+});
