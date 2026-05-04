@@ -56,7 +56,6 @@ body {
 
 /* Small Preview Buttons
    Demonstrate each individual effect */
-
 .small-btn {
     margin-top: 5px;
     padding: 6px 10px;
@@ -84,4 +83,8 @@ body {
 
 @keyframes flash {
     50% { opacity: 0.3; }
+}
+
+.guideContent {
+    align-self: left 10%;
 }
