@@ -1,7 +1,7 @@
 /* Page layout */
 body {
     margin: 0;
-    background: black;
+    background: rgb(171, 176, 145);
     color: white;
     font-family: sans-serif;
     display: flex;
@@ -33,7 +33,7 @@ body {
     font-size: 18px;
     border: none;
     border-radius: 12px;
-    background: var(--bg, #444);
+    background: var(--bg, #616161);
     color: white;
     cursor: pointer;
 
