@@ -1,87 +1,175 @@
-/* Page layout */
 body {
     margin: 0;
-    background: rgb(171, 176, 145);
+    background: #111;
     color: white;
     font-family: sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     height: 100vh;
 }
 
-/* Main Container, holds buttons in one area */
+/* main area */
 .container {
     position: relative;
     width: 500px;
     height: 500px;
 }
 
-/* Main Interactive Button
-   Uses CSS variables for animation */
+
+/* center button */
 #mainButton {
+
     position: absolute;
     top: 50%;
     left: 50%;
+
     transform:
         translate(-50%, -50%)
         translateX(var(--tx, 0))
         scale(var(--scale, 1))
         rotate(var(--rotate, 0deg));
 
-    padding: 20px 40px;
+    padding: 40px;
     font-size: 18px;
-    border: none;
+
+    border: 2px dashed #777;
     border-radius: 12px;
-    background: var(--bg, #616161);
+
+    background: var(--bg, #444);
+
     color: white;
     cursor: pointer;
 
-    transition: transform 0.15s linear;
+    transition:
+        transform 0.15s linear,
+        background 0.2s;
 }
 
-/* Control Groups
-   Position labels and preview buttons */
+
+/* drag hover */
+#mainButton.drag-over {
+    border-color: cyan;
+}
+
+
+/* small button positions */
 .control {
     position: absolute;
     text-align: center;
 }
 
-.control:nth-child(2) { top: 0%; left: 50%; transform: translate(-50%, 0); }
-.control:nth-child(3) { top: 25%; left: 85%; transform: translate(-50%, -50%); }
-.control:nth-child(4) { top: 75%; left: 85%; transform: translate(-50%, -50%); }
-.control:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -100%); }
-.control:nth-child(6) { top: 75%; left: 15%; transform: translate(-50%, -50%); }
+.control:nth-child(2) {
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.control:nth-child(3) {
+    top: 25%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.control:nth-child(4) {
+    top: 75%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.control:nth-child(5) {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.control:nth-child(6) {
+    top: 75%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
 
 
-/* Small Preview Buttons
-   Demonstrate each individual effect */
-
+/* small buttons */
 .small-btn {
-    margin-top: 5px;
-    padding: 6px 10px;
-    cursor: pointer;
 
-    background: var(--bg, #ebe4e4);
+    margin-top: 5px;
+    padding: 10px 14px;
+
+    cursor: grab;
+
+    background: var(--bg, #666);
+
+    color: white;
+    border: none;
+    border-radius: 8px;
 
     transform:
         translateX(var(--tx, 0))
         scale(var(--scale, 1))
         rotate(var(--rotate, 0deg));
 
-    transition: transform 0.15s linear, background 0.2s;
+    transition:
+        transform 0.15s linear,
+        background 0.2s;
 }
 
+
+/* glow effect */
 .glow {
     box-shadow: 0 0 20px cyan;
 }
 
-/* Optional Flash Animation
-   Can be used for future extensions */
-.flash {
-    animation: flash 0.3s;
+
+/* guide button */
+#guideButton {
+
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: black;
+
+    cursor: pointer;
 }
 
-@keyframes flash {
-    50% { opacity: 0.3; }
+
+/* popup */
+#guidePopup {
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* popup content */
+.popupContent {
+
+    background: #222;
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+/* hidden state */
+.hidden {
+    display: none;
 }
