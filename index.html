@@ -10,36 +10,57 @@
 </head>
 <body>
 
-    <div class="container">
-
-    <button id="mainButton">Click</button>
-
-    <div class="control">
-        <label><input type="checkbox" data-effect="shake"> Shake</label><br>
-        <button class="small-btn" data-effect="shake">Shake</button>
+<!-- Guide Overlay -->
+<div id="guideOverlay">
+    <div class="guideContent">
+        <h2>How to use</h2>
+        <p>
+            • Click small buttons to preview feedback effects<br>
+            • Drag buttons into the center area<br>
+            • Effects will combine on the main button<br><br>
+            Click anywhere to begin
+        </p>
     </div>
+</div>
 
-    <div class="control">
-        <label><input type="checkbox" data-effect="scale"> Scale</label><br>
-        <button class="small-btn" data-effect="scale">Scale</button>
-    </div>
+<div class="container">
 
-    <div class="control">
-        <label><input type="checkbox" data-effect="rotate"> Rotate</label><br>
-        <button class="small-btn" data-effect="rotate">Rotate</button>
-    </div>
+    <!-- Main Button -->
+    <button id="mainButton">DROP EFFECTS HERE</button>
 
-    <div class="control">
-        <label><input type="checkbox" data-effect="glow"> Glow</label><br>
-        <button class="small-btn" data-effect="glow">Glow</button>
-    </div>
 
-    <div class="control">
-        <label><input type="checkbox" data-effect="color"> Colour</label><br>
-        <button class="small-btn" data-effect="color">Colour</button>
-    </div>
+    <!-- Small Feedback Buttons -->
 
-    </div>
+    <button class="small-btn"
+        draggable="true"
+        data-effect="shake">
+        Shake
+    </button>
+
+    <button class="small-btn"
+        draggable="true"
+        data-effect="scale">
+        Scale
+    </button>
+
+    <button class="small-btn"
+        draggable="true"
+        data-effect="rotate">
+        Rotate
+    </button>
+
+    <button class="small-btn"
+        draggable="true"
+        data-effect="glow">
+        Glow
+    </button>
+
+    <button class="small-btn"
+        draggable="true"
+        data-effect="color">
+        Color
+    </button>
+</div>
 
 <script src="main.js"></script>
 

@@ -1,87 +1,168 @@
-/* Page layout */
+/* =========================
+   Basic Page Layout
+========================= */
+
 body {
     margin: 0;
-    background: rgb(171, 176, 145);
-    color: white;
+    background: #111;
     font-family: sans-serif;
+    color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     height: 100vh;
+    overflow: hidden;
 }
 
-/* Main Container, holds buttons in one area */
+/* =========================
+   Guide Overlay
+========================= */
+
+#guideOverlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.88);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+    cursor: pointer;
+
+    transition: opacity 0.4s;
+}
+
+#guideOverlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.guideContent {
+    text-align: center;
+    line-height: 1.8;
+    max-width: 450px;
+}
+
+/* =========================
+   Main Container
+========================= */
+
 .container {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 700px;
+    height: 700px;
 }
 
-/* Main Interactive Button
-   Uses CSS variables for animation */
+
+/* =========================
+   Main Button
+========================= */
+
 #mainButton {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:
-        translate(-50%, -50%)
-        translateX(var(--tx, 0))
-        scale(var(--scale, 1))
-        rotate(var(--rotate, 0deg));
 
-    padding: 20px 40px;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    background: var(--bg, #616161);
+    transform:
+    translate(-50%, -50%)
+    translateX(var(--tx, 0))
+    scale(var(--scale, 1))
+    rotate(var(--rotate, 0deg));
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+    border: 3px dashed #777;
+
+    background: var(--bg, #333);
     color: white;
+
+    font-size: 18px;
     cursor: pointer;
 
-    transition: transform 0.15s linear;
+    transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
 }
 
-/* Control Groups
-   Position labels and preview buttons */
-.control {
-    position: absolute;
-    text-align: center;
+#mainButton.drag-over {
+    border-color: cyan;
 }
 
-.control:nth-child(2) { top: 0%; left: 50%; transform: translate(-50%, 0); }
-.control:nth-child(3) { top: 25%; left: 85%; transform: translate(-50%, -50%); }
-.control:nth-child(4) { top: 75%; left: 85%; transform: translate(-50%, -50%); }
-.control:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -100%); }
-.control:nth-child(6) { top: 75%; left: 15%; transform: translate(-50%, -50%); }
-
-
-/* Small Preview Buttons
-   Demonstrate each individual effect */
+/* =========================
+========================= */
 
 .small-btn {
-    margin-top: 5px;
-    padding: 6px 10px;
-    cursor: pointer;
+    position: absolute;
 
-    background: var(--bg, #ebe4e4);
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: var(--bg, #666);
+    color: white;
+
+    cursor: grab;
 
     transform:
         translateX(var(--tx, 0))
         scale(var(--scale, 1))
         rotate(var(--rotate, 0deg));
 
-    transition: transform 0.15s linear, background 0.2s;
+    transition:
+        transform 0.15s,
+        background 0.2s;
 }
+
+.small-btn:active {
+    cursor: grabbing;
+}
+
+
+/* =========================
+   Circular Layout
+========================= */
+
+.small-btn:nth-of-type(2) {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.small-btn:nth-of-type(3) {
+    top: 28%;
+    right: 8%;
+}
+
+.small-btn:nth-of-type(4) {
+    bottom: 28%;
+    right: 8%;
+}
+
+.small-btn:nth-of-type(5) {
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.small-btn:nth-of-type(6) {
+    bottom: 28%;
+    left: 8%;
+}
+
+
+/* =========================
+   Glow Effect
+========================= */
 
 .glow {
-    box-shadow: 0 0 20px cyan;
-}
-
-/* Optional Flash Animation
-   Can be used for future extensions */
-.flash {
-    animation: flash 0.3s;
-}
-
-@keyframes flash {
-    50% { opacity: 0.3; }
+    box-shadow: 0 0 25px cyan;
 }
