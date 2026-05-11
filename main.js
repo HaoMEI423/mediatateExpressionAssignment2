@@ -14,16 +14,10 @@ const guidePopup =
 const closeGuide =
     document.getElementById("closeGuide");
 
-
 // active effects
 let activeEffects = [];
 
-
-
-/* =========================
-   guide popup
-========================= */
-
+/* guide popup */
 guideButton.addEventListener("click", () => {
 
     guidePopup.classList.remove("hidden");
@@ -38,10 +32,7 @@ closeGuide.addEventListener("click", () => {
 
 
 
-/* =========================
-   reset effects
-========================= */
-
+/* reset effects */
 function resetVars(el) {
 
     el.style.setProperty("--tx", "0px");
@@ -57,10 +48,7 @@ function resetVars(el) {
 
 
 
-/* =========================
-   apply effect
-========================= */
-
+/* apply effect */
 function applyEffect(el, effect) {
 
     if (effect === "shake") {
@@ -74,24 +62,20 @@ function applyEffect(el, effect) {
         }, 80);
     }
 
-
     if (effect === "scale") {
 
         el.style.setProperty("--scale", "1.5");
     }
-
 
     if (effect === "rotate") {
 
         el.style.setProperty("--rotate", "25deg");
     }
 
-
     if (effect === "color") {
 
         el.style.setProperty("--bg", "hotpink");
     }
-
 
     if (effect === "glow") {
 
@@ -101,10 +85,7 @@ function applyEffect(el, effect) {
 
 
 
-/* =========================
-   small button preview
-========================= */
-
+/* small button preview */
 smallButtons.forEach(btn => {
 
     btn.addEventListener("click", () => {
@@ -117,20 +98,12 @@ smallButtons.forEach(btn => {
 
         setTimeout(() => {
 
-            resetVars(btn);
-
+        resetVars(btn);
         }, 400);
-
     });
-
 });
 
-
-
-/* =========================
-   drag start
-========================= */
-
+/* drag start */
 smallButtons.forEach(btn => {
 
     btn.addEventListener("dragstart", (e) => {
@@ -139,55 +112,40 @@ smallButtons.forEach(btn => {
             "effect",
             btn.dataset.effect
         );
-
     });
-
 });
 
 
 
-/* =========================
-   allow drop
-========================= */
-
+/* allow drop */
 mainButton.addEventListener("dragover", (e) => {
 
     e.preventDefault();
 
     mainButton.classList.add("drag-over");
-
 });
-
 
 mainButton.addEventListener("dragleave", () => {
 
     mainButton.classList.remove("drag-over");
-
 });
 
 
 
-/* =========================
-   drop effect
-========================= */
-
+/* drop effect */
 mainButton.addEventListener("drop", (e) => {
 
     e.preventDefault();
 
     mainButton.classList.remove("drag-over");
 
-
     const effect =
         e.dataTransfer.getData("effect");
-
 
     // store effect
     activeEffects.push(effect);
 
-
     resetVars(mainButton);
-
 
     // apply all effects
     activeEffects.forEach(effect => {
@@ -196,21 +154,15 @@ mainButton.addEventListener("drop", (e) => {
 
     });
 
-
     setTimeout(() => {
 
         resetVars(mainButton);
-
     }, 400);
-
 });
 
 
 
-/* =========================
-   replay effects
-========================= */
-
+/* replay effects*/
 mainButton.addEventListener("click", () => {
 
     resetVars(mainButton);
@@ -218,7 +170,5 @@ mainButton.addEventListener("click", () => {
     activeEffects.forEach(effect => {
 
         applyEffect(mainButton, effect);
-
     });
-
 });

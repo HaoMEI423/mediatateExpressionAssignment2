@@ -140,6 +140,8 @@ body {
     color: black;
 
     cursor: pointer;
+
+    z-index: 1000;
 }
 
 
@@ -154,6 +156,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    z-index: 999;
 }
 
 
@@ -171,5 +175,5 @@ body {
 
 /* hidden state */
 .hidden {
-    display: none;
+    display: none !important;
 }
